@@ -1,0 +1,30 @@
+{% extends "@App/Layout/main.html.twig" %}
+
+{% block heading %}
+    {{ page.title }}
+{% endblock %}
+
+{% block body %}
+{{ page.body }}
+<div class="form-group floating-label-form-group controls">
+    {{ form_start(comment_form) }}
+    {{ form_label(comment_form.email) }}
+    {{ form_errors(comment_form.email) }}
+    {{ form_widget(comment_form.email, {'attr': {'placeholder': 'email'}}) }}
+    {{ form_label(comment_form.body) }}
+    {{ form_errors(comment_form.body) }}
+    {{ form_widget(comment_form.body, {'attr': {'placeholder': 'write a comment here'}}) }}
+    <div class="form-group">
+        {{ form_widget(comment_form.button, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+    {{ form_end(comment_form) }}
+
+</div>
+{% for comment in page.comments %}
+    <hr>
+    <div class="post-preview">
+        <p class="post-meta">{{ comment.body }} <br> author: <a href="mailto:{{ comment.email }}">{{ comment.email }}</a></p>
+    </div>
+{% endfor %}
+{% endblock %}
+

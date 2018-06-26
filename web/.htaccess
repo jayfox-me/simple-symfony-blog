@@ -1,0 +1,3 @@
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^(.*)$ app_dev.php [QSA,L]

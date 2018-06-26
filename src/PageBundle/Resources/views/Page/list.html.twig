@@ -1,0 +1,19 @@
+{% extends "@App/Layout/main.html.twig" %}
+
+{% block heading %}
+Posts
+{% endblock %}
+{% block body %}
+{% for page in pages %}
+    <div class="post-preview">
+        <a href="/page/{{ page.id }}">
+            <h2 class="post-title">
+                {{ page.title }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ page.body }}
+            </h3>
+        </a>
+    </div>
+{% endfor %}
+{% endblock %}
