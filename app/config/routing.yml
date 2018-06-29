@@ -4,3 +4,4 @@ app:
 
 page:
   resource: '@PageBundle/Resources/Config/routing.yml'
+

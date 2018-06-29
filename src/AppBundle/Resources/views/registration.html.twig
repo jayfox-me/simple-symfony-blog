@@ -1,0 +1,28 @@
+{% extends "@App/Layout/main.html.twig" %}
+
+{% block heading %}
+    Registration
+{% endblock %}
+
+{% block body %}
+<div class="form-group floating-label-form-group controls">
+    {{ form_start(form) }}
+    <div class="control-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'placeholder': 'name'}}) }}
+    </div>
+    <div class="control-group">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email, {'attr': {'placeholder': 'email'}}) }}
+    </div>
+    <div class="control-group">
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password, {'attr': {'placeholder': 'password'}}) }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form_widget(form.button, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -42,3 +42,12 @@ services:
     CommentBundle\DataFixtures\:
                 resource: '../../src/CommentBundle/DataFixtures'
                 tags: ['doctrine.fixture.orm']
+    app.form_login_authenticator:
+        class: AppBundle\Security\FormLoginAuthenticator
+        arguments: ["@router", "@security.password_encoder"]
+    app.doctrine.listener.comment:
+            class: CommentBundle\EntityListeners\CommentListener
+            public: false
+            arguments: ["@swiftmailer.mailer.default"]
+            tags:
+                - { name: "doctrine.orm.entity_listener" }

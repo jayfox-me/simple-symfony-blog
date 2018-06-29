@@ -15,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @package CommentBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="comment")
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\EntityListeners({"CommentBundle\EntityListeners\CommentListener"})
  */
 class Comment
 {
