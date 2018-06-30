@@ -1,7 +1,7 @@
 blog
 ====
 
-A small Symfony blog to explode several features
+A small Symfony blog to explore several features
 * routing
 * data fixtures
 * controllers
