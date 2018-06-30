@@ -6,6 +6,10 @@
 
 {% block body %}
 {{ page.body }}
+    <div class="post-preview">
+        <p class="post-meta">Views: {{ views }}</p>
+    </div>
+<hr>
 <div class="form-group floating-label-form-group controls">
     {{ form_start(comment_form) }}
     {{ form_label(comment_form.email) }}

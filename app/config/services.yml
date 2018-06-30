@@ -33,21 +33,30 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    storage:
+        class: Utils\Storage
+        public: true
+        arguments:
+          $scheme: '%redis_scheme%'
+          $host: '%redis_host%'
+          $port: '%redis_port%'
+          $password: '%redis_password%'
+
     PageBundle\DataFixtures\:
         resource: '../../src/PageBundle/DataFixtures'
         tags: ['doctrine.fixture.orm']
     TermBundle\DataFixtures\:
-            resource: '../../src/TermBundle/DataFixtures'
-            tags: ['doctrine.fixture.orm']
+        resource: '../../src/TermBundle/DataFixtures'
+        tags: ['doctrine.fixture.orm']
     CommentBundle\DataFixtures\:
-                resource: '../../src/CommentBundle/DataFixtures'
-                tags: ['doctrine.fixture.orm']
+        resource: '../../src/CommentBundle/DataFixtures'
+        tags: ['doctrine.fixture.orm']
     app.form_login_authenticator:
         class: AppBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
     app.doctrine.listener.comment:
-            class: CommentBundle\EntityListeners\CommentListener
-            public: false
-            arguments: ["@swiftmailer.mailer.default"]
-            tags:
-                - { name: "doctrine.orm.entity_listener" }
+        class: CommentBundle\EntityListeners\CommentListener
+        public: false
+        arguments: ["@swiftmailer.mailer.default"]
+        tags:
+            - { name: "doctrine.orm.entity_listener" }

@@ -1,3 +1,4 @@
 Options -MultiViews
 RewriteEngine On
-RewriteRule ^(.*)$ app_dev.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ app.php [QSA,L]

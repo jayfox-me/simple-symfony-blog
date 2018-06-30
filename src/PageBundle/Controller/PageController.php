@@ -35,9 +35,14 @@ class PageController extends Controller
             return $this->redirectToRoute('page_view', ['id' => $id]);
         }
 
+        $storage = $this->get('storage');
+        $storage->incr("page$id");
+        $views = $storage->get("page$id");
+
         return $this->render('@Page/Page/item.html.twig', [
             'page' => $page,
-            'comment_form' => $commentForm->createView()
+            'comment_form' => $commentForm->createView(),
+            'views' => $views
         ]);
     }
 }
